@@ -50,6 +50,14 @@ class _MyHomePageState extends State<MyHomePage> {
     );
   }
 
+  final ButtonStyle raisedButtonStyle = ElevatedButton.styleFrom(
+    backgroundColor: Colors.black,
+    foregroundColor: Colors.white,
+    padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 12.0),
+    textStyle: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+    shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8.0)),
+  );
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -247,34 +255,52 @@ class _MyHomePageState extends State<MyHomePage> {
       //     ),
       //   ),
       // ),
+      // body: Row(
+      //   mainAxisAlignment: MainAxisAlignment.spaceAround,
+      //   crossAxisAlignment: CrossAxisAlignment.center,
+      //   children: [
+      //     Container(
+      //       width: 100,
+      //       height: 100,
+      //       color: Colors.teal.shade100,
+      //       child: const Center(child: Text('A')),
+      //     ),
+      //     Container(
+      //       width: 100,
+      //       height: 100,
+      //       color: Colors.teal.shade200,
+      //       child: const Center(child: Text('B')),
+      //     ),
+      //     Container(
+      //       width: 100,
+      //       height: 100,
+      //       color: Colors.teal.shade300,
+      //       child: const Center(child: Text('C')),
+      //     ),
+      //   ],
+      // ),
       body: Row(
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         crossAxisAlignment: CrossAxisAlignment.center,
-
-        // mainAxisSize: MainAxisSize.min,
-
-        // children: <Widget>[
-        //   const Text('This application is built with Flutter: '),
-        //   Text('$_counter', style: Theme.of(context).textTheme.headlineMedium),
-        // ],
         children: [
-          Container(
-            width: 100,
-            height: 100,
-            color: Colors.teal.shade100,
-            child: const Center(child: Text('A')),
+          TextButton(
+            onPressed: () {
+              MySanckBar('Text Button Clicked', context);
+            },
+            child: const Text('Text Button'),
           ),
-          Container(
-            width: 100,
-            height: 100,
-            color: Colors.teal.shade200,
-            child: const Center(child: Text('B')),
+          ElevatedButton(
+            onPressed: () {
+              MySanckBar('Elevated Button Clicked', context);
+            },
+            child: const Text('Elevated Button'),
+            style: raisedButtonStyle,
           ),
-          Container(
-            width: 100,
-            height: 100,
-            color: Colors.teal.shade300,
-            child: const Center(child: Text('C')),
+          OutlinedButton(
+            onPressed: () {
+              MySanckBar('Outlined Button Clicked', context);
+            },
+            child: const Text('Outlined Button'),
           ),
         ],
       ),
